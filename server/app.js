@@ -23,7 +23,7 @@ app.get('/bands/:id', async (req, res, next) => {
 // All bands and associated musicians - DO NOT MODIFY
 app.get('/bands', async (req, res, next) => {
     const payload = await Band.findAll({
-        include: {model: Musician}, 
+        include: {model: Musician},
         order: [['name'], [Musician, 'firstName']]
     });
     res.json(payload);
@@ -41,7 +41,7 @@ app.get('/musicians/:id', async (req, res, next) => {
 // All musicians and associated instruments - DO NOT MODIFY
 app.get('/musicians', async (req, res, next) => {
     const payload = await Musician.findAll({
-        include: {model: Instrument}, 
+        include: {model: Instrument},
         order: [['firstName'], [Instrument, 'type']]
     });
     res.json(payload);
@@ -55,5 +55,5 @@ app.get('/', (req, res) => {
 });
 
 // Set port and listen for incoming requests - DO NOT MODIFY
-const port = 5000;
+const port = 5001;
 app.listen(port, () => console.log('Server is listening on port', port));
